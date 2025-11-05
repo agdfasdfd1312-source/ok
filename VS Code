@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+</head>
+<body>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <h1>Filtar Table</h1>
+  <input type="text" id="searchInput" placeholder="Search">
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Abdullah</td>
+        <td>Pakistan</td>
+      </tr>
+      <tr><td>Haider</td>
+        <td>America</td>
+      </tr>
+      <tr><td>HUzaifa</td>
+        <td>Pakistan</td>
+      </tr>
+      <tr><td>Nasir</td>
+        <td>USA</td>
+      </tr>
+      <tr><td>Sir Talal </td>
+        <td>America</td>
+      </tr>
+    </tbody>
+  </table>
+  <script src="script.js"></script>
+</body>
+</html> the end html
+ody {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  width: 60%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+} end css
+const searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('keyup', function() {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll("#myTable tbody tr");
+
+  rows.forEach(row => {
+    const name = row.cells[0].textContent.toLowerCase();
+    const country = row.cells[1].textContent.toLowerCase();
+    if (name.includes(filter) || country.includes(filter)) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
+  the end java
+
+
