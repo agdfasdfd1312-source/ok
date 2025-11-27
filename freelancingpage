@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Landing Page</title>
+
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-800">
+
+ 
+    <header class="flex justify-between items-center p-5 bg-white shadow">
+        <h1 class="text-2xl font-bold">MyPortfolio</h1>
+
+        
+        <nav class="hidden md:flex gap-6">
+            <a href="#hero" class="hover:text-blue-500">Home</a>
+            <a href="#services" class="hover:text-blue-500">Services</a>
+            <a href="#portfolio" class="hover:text-blue-500">Portfolio</a>
+            <a href="#about" class="hover:text-blue-500">About</a>
+            <a href="#contact" class="hover:text-blue-500">Contact</a>
+        </nav>
+
+        <button id="menu-btn" class="md:hidden text-3xl">☰</button>
+    </header>
+
+   
+    <nav id="menu" class="hidden flex-col bg-white shadow p-5 md:hidden">
+        <a href="#hero" class="py-2">Home</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#portfolio" class="py-2">Portfolio</a>
+        <a href="#about" class="py-2">About</a>
+        <a href="#contact" class="py-2">Contact</a>
+    </nav>
+
+    
+    <section id="hero" class="text-center p-10 bg-gray-100">
+        <h2 class="text-4xl font-bold mb-4">Hi, I'm a Freelance Developer</h2>
+        <p class="text-lg mb-6">I build modern websites with clean designs.</p>
+        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded">Hire Me</a>
+    </section>
+
+   
+    <section id="services" class="p-10">
+        <h2 class="text-3xl font-bold text-center mb-10">My Services</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-5 shadow rounded bg-white text-center">
+                <h3 class="text-xl font-bold mb-3">Web Design</h3>
+                <p>Modern and responsive UI designs.</p>
+            </div>
+
+            <div class="p-5 shadow rounded bg-white text-center">
+                <h3 class="text-xl font-bold mb-3">Development</h3>
+                <p>Clean and functional websites.</p>
+            </div>
+
+            <div class="p-5 shadow rounded bg-white text-center">
+                <h3 class="text-xl font-bold mb-3">Branding</h3>
+                <p>Brand identity and digital presence.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="portfolio" class="p-10 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10">Portfolio</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-5 rounded shadow">Project 1</div>
+            <div class="bg-white p-5 rounded shadow">Project 2</div>
+            <div class="bg-white p-5 rounded shadow">Project 3</div>
+        </div>
+    </section>
+
+    
+    <section id="about" class="p-10">
+        <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
+
+        <div class="md:flex items-center gap-10">
+            <img src="https://via.placeholder.com/200" class="rounded-full mx-auto mb-5" alt="Freelancer photo">
+
+            <div>
+                <p class="mb-3">I am a professional developer with expertise in modern web technologies.</p>
+
+                <h3 class="text-xl font-bold mb-3">Skills:</h3>
+                <ul class="list-disc pl-5">
+                    <li>HTML / CSS</li>
+                    <li>JavaScript</li>
+                    <li>Tailwind CSS</li>
+                    <li>React</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="p-10 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center mb-10">Contact Me</h2>
+
+        <form class="max-w-xl mx-auto bg-white shadow p-6 rounded">
+            <input type="text" placeholder="Your Name" class="w-full mb-4 p-3 border rounded">
+            <input type="email" placeholder="Your Email" class="w-full mb-4 p-3 border rounded">
+            <textarea placeholder="Message" class="w-full mb-4 p-3 border rounded" rows="5"></textarea>
+            <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded">Send Message</button>
+        </form>
+    </section>
+
+    
+    <footer class="text-center p-5 bg-black text-white">
+        © 2025 MyPortfolio — All Rights Reserved
+    </footer>
+
+    <script src="script.js"></script>
+
+    
+</body>
+</html>
+css
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fb; 
+}
+
+
+.custom-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+#menu {
+    transition: all 0.3s ease-in-out;
+}
+input:focus,
+textarea:focus {
+    outline: 2px solid #3b82f6; 
+}
+button:hover {
+    opacity: 0.9;
+}
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+footer {
+    background: #000;
+    color: white;
+}
+
+js
+
+
+
+const menuBtn = document.getElementById("menu-btn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+});
+
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document
+            .querySelector(this.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+
+        menu.classList.add("hidden"); 
+    });
+});
